@@ -9,20 +9,40 @@ A standalone classic Winamp-style music player built with Vite + Svelte using th
 - Sample playlist with multiple tracks
 - Draggable windows
 - Volume, play/pause, stop, next/previous controls
+- Complete integration package for SvelteKit
 
 ## Project Structure
 ```
 /
-├── index.html          # Main HTML entry point
-├── package.json        # Dependencies and scripts
-├── vite.config.js      # Vite configuration
-├── svelte.config.js    # Svelte configuration
+├── index.html              # Main HTML entry point
+├── package.json            # Dependencies and scripts
+├── vite.config.js          # Vite configuration
+├── svelte.config.js        # Svelte configuration
 ├── src/
-│   ├── main.js         # App entry point
-│   ├── App.svelte      # Main app component
+│   ├── main.js             # App entry point
+│   ├── App.svelte          # Main app component
 │   └── lib/
 │       └── WebampPlayer.svelte  # Webamp player component
-└── INTEGRATION_GUIDE.md         # Guide for SvelteKit integration
+├── integration/            # COPY THESE TO YOUR SVELTEKIT APP
+│   ├── COPY_PASTE_GUIDE.md # Quick integration guide
+│   ├── README.md           # Detailed instructions
+│   ├── lib/
+│   │   ├── components/
+│   │   │   ├── WinampPlayer.svelte      # Main player
+│   │   │   ├── WinampTaskbarButton.svelte
+│   │   │   ├── WinampDesktopIcon.svelte
+│   │   │   └── WinampStartMenuItem.svelte
+│   │   ├── stores/
+│   │   │   └── winampStore.js    # Global state management
+│   │   └── utils/
+│   │       └── fileAssociations.js  # Audio file detection
+│   ├── examples/
+│   │   ├── FileIconExample.svelte   # How to handle file clicks
+│   │   └── LayoutExample.svelte     # How to add to layout
+│   └── public/icons/
+│       ├── winamp.svg      # Winamp icon
+│       └── audio.svg       # Audio file icon
+└── INTEGRATION_GUIDE.md    # Original guide
 ```
 
 ## Key Dependencies
@@ -37,4 +57,9 @@ npm run build  # Production build
 ```
 
 ## Integration Notes
-See INTEGRATION_GUIDE.md for step-by-step instructions on integrating this player into a SvelteKit Windows XP themed portfolio.
+See `integration/COPY_PASTE_GUIDE.md` for quick step-by-step instructions on integrating this player into your SvelteKit Windows XP themed portfolio. The integration includes:
+- Automatic audio file detection
+- Opens Winamp on double-click of any audio file
+- Taskbar button support
+- Desktop icon support
+- Programmatic controls (play, pause, next, etc.)
